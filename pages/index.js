@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { Nunito } from "next/font/google";
-import Spline from '@splinetool/react-spline';
+// import Spline from '@splinetool/react-spline';
 import { AnimatePresence, motion } from "framer-motion"
 import Loader from "./components/Loader";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
+const Spline = lazy(() => import("@splinetool/react-spline"));
+
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -22,12 +24,14 @@ export default function Home() {
     <>
     <div className="bg-black h-full w-full p-5 text-white flex flex-col items-center min-h-[120vh]">
           <div className="fixed top-3 left-3 font-monument font-bold text-lg tracking-wider">DIALECT</div>
+          <Suspense fallback={<div>Loading...</div>}>
           <motion.div
           initial={{scale: 0.3}}
           animate={isLoaded && {scale: 1, transition: {ease: 'easeInOut', bounce: 0.2, delay: 0.1}}}
           >
           <Spline scene="https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode" />
           </motion.div>
+          </Suspense>
           <div className="w-[70vw] pb-20 mt-[-10vh]">
             <motion.div
             variants={viewVariants}
@@ -50,12 +54,12 @@ export default function Home() {
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight text-lg"><span className="font-extrabold">Jon, Dialect&apos;s CTO</span>, commented on the appointment, <span className="italic">&quot;Simon&apos;s visionary approach to retail and marketing is exactly what Studio Dialect needs as we continue to explore new horizons in future focused brand activation and 3D motion work. His track record of transformative leadership and innovation is unparalleled, and we are excited to have him on board.&quot;</span></motion.div>
+            className="mb-5 leading-tight text-lg"><span className="font-extrabold">Jon, Dialect&apos;s CTO</span>, commented on the appointment, <span className="text-italic">&quot;Simon&apos;s visionary approach to retail and marketing is exactly what Studio Dialect needs as we continue to explore new horizons in future focused brand activation and 3D motion work. His track record of transformative leadership and innovation is unparalleled, and we are excited to have him on board.&quot;</span></motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight text-lg"><span className="font-extrabold">From Andy, Creative Director</span> at Dialect: <span className="italic">&quot;We&apos;ve worked with Simon for several years as a client, having him join our team is a game-changer for us. His insight into the intersection of retail, technology, and creative strategy will undoubtedly propel Studio Dialect to new heights. I look forward to collaborating closely with Simon to deliver groundbreaking solutions for our clients.&quot;</span></motion.div>
+            className="mb-5 leading-tight text-lg"><span className="font-extrabold">From Andy, Creative Director</span> at Dialect: <span className="text-italic">&quot;We&apos;ve worked with Simon for several years as a client, having him join our team is a game-changer for us. His insight into the intersection of retail, technology, and creative strategy will undoubtedly propel Studio Dialect to new heights. I look forward to collaborating closely with Simon to deliver groundbreaking solutions for our clients.&quot;</span></motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
