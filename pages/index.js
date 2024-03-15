@@ -43,7 +43,7 @@ export default function Home() {
           <Spline scene={isMobileScreen ? "https://prod.spline.design/CmuVQOCdo-3Wkmxw/scene.splinecode" : "https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode"} />
           </motion.div>
           </Suspense>
-          <div className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh]">
+          <div className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh] relative z-20">
             <motion.div
             variants={viewVariants}
             initial='initial'
