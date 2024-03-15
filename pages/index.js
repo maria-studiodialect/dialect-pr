@@ -45,22 +45,22 @@ export default function Home() {
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight text-lg">Simon's career is distinguished by his commitment to merging technology and creativity to redefine customer experience. His leadership whether at Outform, Cheil or Saatchi X saw them partner with some of the world’s most iconic brands and retailers, driving forward innovations that have transformed the retail and brand activation landscape.</motion.div>
+            className="mb-5 leading-tight text-lg">Simon&apos;s career is distinguished by his commitment to merging technology and creativity to redefine customer experience. His leadership whether at Outform, Cheil or Saatchi X saw them partner with some of the world&apos;s most iconic brands and retailers, driving forward innovations that have transformed the retail and brand activation landscape.</motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight text-lg"><span className="font-extrabold">Jon, Dialect's CTO</span>, commented on the appointment, "Simon's visionary approach to retail and marketing is exactly what Studio Dialect needs as we continue to explore new horizons in future focused brand activation and 3D motion work. His track record of transformative leadership and innovation is unparalleled, and we are excited to have him on board."</motion.div>
+            className="mb-5 leading-tight text-lg"><span className="font-extrabold">Jon, Dialect&apos;s CTO</span>, commented on the appointment, <span className="italic">&quot;Simon&apos;s visionary approach to retail and marketing is exactly what Studio Dialect needs as we continue to explore new horizons in future focused brand activation and 3D motion work. His track record of transformative leadership and innovation is unparalleled, and we are excited to have him on board.&quot;</span></motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight text-lg"><span className="font-extrabold">From Andy, Creative Director</span> at Dialect: "We’ve worked with Simon for several years as a client, having him join our team is a game-changer for us. His insight into the intersection of retail, technology, and creative strategy will undoubtedly propel Studio Dialect to new heights. I look forward to collaborating closely with Simon to deliver groundbreaking solutions for our clients."</motion.div>
+            className="mb-5 leading-tight text-lg"><span className="font-extrabold">From Andy, Creative Director</span> at Dialect: <span className="italic">&quot;We&apos;ve worked with Simon for several years as a client, having him join our team is a game-changer for us. His insight into the intersection of retail, technology, and creative strategy will undoubtedly propel Studio Dialect to new heights. I look forward to collaborating closely with Simon to deliver groundbreaking solutions for our clients.&quot;</span></motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight text-lg">Simon's appointment is a testament to Studio Dialect's commitment to excellence and innovation in the field of interactive and experiential. Under his guidance, the studio is set to achieve remarkable growth and continue delivering exceptional value to its clients and partners.</motion.div>
+            className="mb-5 leading-tight text-lg">Simon&apos;s appointment is a testament to Studio Dialect&apos;s commitment to excellence and innovation in the field of interactive and experiential. Under his guidance, the studio is set to achieve remarkable growth and continue delivering exceptional value to its clients and partners.</motion.div>
             
             <motion.div
             variants={viewVariants}
@@ -71,7 +71,7 @@ export default function Home() {
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="leading-tight text-lg">Studio Dialect is a "first focused" interactive studio specialising in interactive brand activations, creative technology and motion work. Known for its innovative approach to digital storytelling and immersive experiences, Studio Dialect collaborates with brands to bring their visions to life in unique and engaging ways.</motion.div>
+            className="leading-tight text-lg">Studio Dialect is a &quot;first focused&quot; interactive studio specialising in interactive brand activations, creative technology and motion work. Known for its innovative approach to digital storytelling and immersive experiences, Studio Dialect collaborates with brands to bring their visions to life in unique and engaging ways.</motion.div>
             </div>
           </div>
     </div>
