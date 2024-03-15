@@ -3,7 +3,8 @@ import { Nunito } from "next/font/google";
 // import Spline from '@splinetool/react-spline';
 import { AnimatePresence, motion } from "framer-motion"
 import Loader from "./components/Loader";
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
+import isMobile from '../utils/isMobile';
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 
@@ -11,28 +12,38 @@ const nunito = Nunito({ subsets: ["latin"] });
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+  
   setTimeout(() => {
     setIsLoaded(true);
-  }, 1500);
+  }, 900);
 
   const viewVariants = {
     initial: { opacity:0, y: 100},
     whileInView: {opacity: 1, y: 0, transition: {ease: 'easeInOut', bounce: 0.2}},
     animate: isLoaded && {opacity: 1, y: 0, transition: {ease: 'easeInOut', bounce: 0.2, delay: 0.3}}
   };
+
+  
+
+  useEffect(() => {
+    setIsMobileScreen(isMobile());
+  }, []);
+
+  console.log(isMobileScreen)
   return (
     <>
     <div className="bg-black h-full w-full p-5 text-white flex flex-col items-center min-h-[120vh]">
-          <div className="fixed top-3 left-3 font-monument font-bold md:text-lg tracking-wider">DIALECT</div>
+          <div className="absolute top-3 left-3 font-monument font-bold md:text-lg tracking-wider">DIALECT</div>
           <Suspense fallback={<div>Loading...</div>}>
           <motion.div
           initial={{scale: 0.3}}
           animate={isLoaded && {scale: 1, transition: {ease: 'easeInOut', bounce: 0.2, delay: 0.1}}}
           >
-          <Spline scene="https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode" />
+          <Spline scene={isMobileScreen ? "https://prod.spline.design/CmuVQOCdo-3Wkmxw/scene.splinecode" : "https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode"} />
           </motion.div>
           </Suspense>
-          <div className="md:w-[70em] pb-20 md:mt-[-10vh]">
+          <div className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh]">
             <motion.div
             variants={viewVariants}
             initial='initial'

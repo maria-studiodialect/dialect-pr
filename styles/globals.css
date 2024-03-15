@@ -23,3 +23,9 @@
   font-family: "Sligoil";
   src: url("./../public/Sligoil-Micro.woff2");
 }
+
+@media only screen and (max-width: 768px) {
+  canvas {
+    min-height: 70vh !important;
+  }
+}
