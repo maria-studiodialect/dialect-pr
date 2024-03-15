@@ -16,7 +16,7 @@ export default function Home() {
   
   setTimeout(() => {
     setIsLoaded(true);
-  }, 900);
+  }, 1200);
 
   const viewVariants = {
     initial: { opacity:0, y: 100},
