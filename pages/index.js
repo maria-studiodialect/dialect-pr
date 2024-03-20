@@ -45,6 +45,7 @@ export default function Home() {
 
     useEffect(() => {
       const splineElement = document.getElementById('splineElement');
+      const scrollElement = document.getElementById('scrollElement');
       let startY = 0; // Store the starting Y position of the touch
       disableScroll();
       const handleTouchStart = (event) => {
@@ -64,12 +65,14 @@ export default function Home() {
       if (isMobileScreen && splineElement) {
         splineElement.addEventListener('touchstart', handleTouchStart);
         splineElement.addEventListener('touchmove', handleTouchMove);
+        scrollElement.addEventListener('touchstart', enableScroll);
       }
     
       return () => {
         if (splineElement) {
           splineElement.removeEventListener('touchstart', handleTouchStart);
           splineElement.removeEventListener('touchmove', handleTouchMove);
+          scrollElement.removeEventListener('touchstart', enableScroll);
         }
       };
     }, [isMobileScreen]);
@@ -98,7 +101,7 @@ export default function Home() {
             <motion.div
             variants={viewVariants}
             initial='initial'
-            whileInView='whileInView'
+            animate='animate'
             className="mb-5 leading-tight md:text-lg">Studio Dialect is thrilled to announce the appointment of Simon Hathaway as Non-Executive, effective immediately. Simon brings to Studio Dialect a wealth of experience from the global retail and innovation sector, having held leadership roles at renowned agencies including Outform, where he served as President & Group Managing Director for EMEA, Cheil Worldwide as President & Global Chief Retail Officer and Saatchi & Saatchi X as CEO EMEA.</motion.div>
             <motion.div
             variants={viewVariants}
