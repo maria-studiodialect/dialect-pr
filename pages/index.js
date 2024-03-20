@@ -33,33 +33,46 @@ export default function Home() {
     // Function to disable scroll
     const disableScroll = () => {
       document.body.style.overflow = 'hidden';
-      console.log('touched scroll')
+      console.log('disabled scroll')
     };
   
     // Function to enable scroll
     const enableScroll = () => {
       document.body.style.overflow = '';
+      console.log('enabled scroll')
     };
 
 
-  useEffect(() => {
-    const splineElement = document.getElementById('splineElement');
-    const scrollElement = document.getElementById('scrollElement');
-    if (isMobileScreen && splineElement) {
-      // Add event listeners if on a mobile screen
+    useEffect(() => {
+      const splineElement = document.getElementById('splineElement');
+      let startY = 0; // Store the starting Y position of the touch
       disableScroll();
-      splineElement.addEventListener('touchstart', disableScroll);
-      scrollElement.addEventListener('touchstart', enableScroll);
-    }
-
-    // Cleanup function to remove event listeners
-    return () => {
-      if (splineElement) {
-        splineElement.removeEventListener('touchstart', disableScroll);
-        scrollElement.removeEventListener('touchstart', enableScroll);
+      const handleTouchStart = (event) => {
+        startY = event.touches[0].clientY; // Set the start Y to the initial touch position
+        disableScroll(); // You might choose to disable scroll initially or not, based on testing
+      };
+    
+      const handleTouchMove = (event) => {
+        const moveY = event.touches[0].clientY;
+        const diffY = moveY - startY;
+    
+        if (Math.abs(diffY) > 50) { // Check if the vertical movement is significant
+          enableScroll(); // If there's significant vertical movement, enable scrolling
+        }
+      };
+    
+      if (isMobileScreen && splineElement) {
+        splineElement.addEventListener('touchstart', handleTouchStart);
+        splineElement.addEventListener('touchmove', handleTouchMove);
       }
-    };
-  }, [isMobileScreen]);
+    
+      return () => {
+        if (splineElement) {
+          splineElement.removeEventListener('touchstart', handleTouchStart);
+          splineElement.removeEventListener('touchmove', handleTouchMove);
+        }
+      };
+    }, [isMobileScreen]);
 
   return (
     <>
