@@ -42,17 +42,18 @@ export default function Home() {
 
   useEffect(() => {
     const splineElement = document.getElementById('splineElement');
+    const scrollElement = document.getElementById('scrollElement');
     if (isMobileScreen && splineElement) {
       // Add event listeners if on a mobile screen
       splineElement.addEventListener('touchstart', disableScroll);
-      splineElement.addEventListener('touchend', enableScroll);
+      scrollElement.addEventListener('touchstart', enableScroll);
     }
 
     // Cleanup function to remove event listeners
     return () => {
       if (splineElement) {
         splineElement.removeEventListener('touchstart', disableScroll);
-        splineElement.removeEventListener('touchend', enableScroll);
+        scrollElement.removeEventListener('touchstart', enableScroll);
       }
     };
   }, [isMobileScreen]);
@@ -67,7 +68,7 @@ export default function Home() {
           >
           <Spline id="splineElement" scene={isMobileScreen ? "https://prod.spline.design/CmuVQOCdo-3Wkmxw/scene.splinecode" : "https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode"} />
           </motion.div>
-          <div className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh] relative z-20">
+          <div id="scrollElement" className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh] relative z-20">
             <motion.div
             variants={viewVariants}
             initial='initial'
