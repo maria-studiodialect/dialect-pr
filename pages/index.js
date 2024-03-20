@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import Loader from "./components/Loader";
 import { useState, lazy, Suspense, useEffect } from "react";
 import isMobile from '../utils/isMobile';
-const Spline = lazy(() => import("@splinetool/react-spline"));
+import Spline from '@splinetool/react-spline';
 
 
 const nunito = Nunito({ subsets: ["latin"] });
@@ -30,19 +30,43 @@ export default function Home() {
     setIsMobileScreen(isMobile());
   }, []);
 
-  console.log(isMobileScreen)
+    // Function to disable scroll
+    const disableScroll = () => {
+      document.body.style.overflow = 'hidden';
+    };
+  
+    // Function to enable scroll
+    const enableScroll = () => {
+      document.body.style.overflow = '';
+    };
+
+  useEffect(() => {
+    const splineElement = document.getElementById('splineElement');
+    if (isMobileScreen && splineElement) {
+      // Add event listeners if on a mobile screen
+      splineElement.addEventListener('touchstart', disableScroll);
+      splineElement.addEventListener('touchend', enableScroll);
+    }
+
+    // Cleanup function to remove event listeners
+    return () => {
+      if (splineElement) {
+        splineElement.removeEventListener('touchstart', disableScroll);
+        splineElement.removeEventListener('touchend', enableScroll);
+      }
+    };
+  }, [isMobileScreen]);
+
   return (
     <>
     <div className="bg-black h-full w-full p-5 text-white flex flex-col items-center min-h-[120vh]">
           <div className="absolute top-3 left-3 font-monument font-bold md:text-lg tracking-wider">DIALECT</div>
-          <Suspense fallback={<div>Loading...</div>}>
           <motion.div
           initial={{scale: 0.3}}
           animate={isLoaded && {scale: 1, transition: {ease: 'easeInOut', bounce: 0.2, delay: 0.1}}}
           >
-          <Spline scene={isMobileScreen ? "https://prod.spline.design/CmuVQOCdo-3Wkmxw/scene.splinecode" : "https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode"} />
+          <Spline id="splineElement" scene={isMobileScreen ? "https://prod.spline.design/CmuVQOCdo-3Wkmxw/scene.splinecode" : "https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode"} />
           </motion.div>
-          </Suspense>
           <div className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh] relative z-20">
             <motion.div
             variants={viewVariants}
