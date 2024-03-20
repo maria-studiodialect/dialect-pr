@@ -33,6 +33,7 @@ export default function Home() {
     // Function to disable scroll
     const disableScroll = () => {
       document.body.style.overflow = 'hidden';
+      console.log('touched scroll')
     };
   
     // Function to enable scroll
@@ -40,11 +41,13 @@ export default function Home() {
       document.body.style.overflow = '';
     };
 
+
   useEffect(() => {
     const splineElement = document.getElementById('splineElement');
     const scrollElement = document.getElementById('scrollElement');
     if (isMobileScreen && splineElement) {
       // Add event listeners if on a mobile screen
+      disableScroll();
       splineElement.addEventListener('touchstart', disableScroll);
       scrollElement.addEventListener('touchstart', enableScroll);
     }
@@ -62,12 +65,15 @@ export default function Home() {
     <>
     <div className="bg-black h-full w-full p-5 text-white flex flex-col items-center min-h-[120vh]">
           <div className="absolute top-3 left-3 font-monument font-bold md:text-lg tracking-wider">DIALECT</div>
+          <Suspense fallback={<div>Loading...</div>}>
           <motion.div
           initial={{scale: 0.3}}
           animate={isLoaded && {scale: 1, transition: {ease: 'easeInOut', bounce: 0.2, delay: 0.1}}}
+          className={`${isMobileScreen ? 'mt-[-4vh]' : ''}`}
           >
           <Spline id="splineElement" scene={isMobileScreen ? "https://prod.spline.design/CmuVQOCdo-3Wkmxw/scene.splinecode" : "https://prod.spline.design/nLwJVXeu-JWHQAjv/scene.splinecode"} />
           </motion.div>
+          </Suspense>
           <div id="scrollElement" className="md:w-[70em] pb-20 mt-[-4vh] md:mt-[-8vh] relative z-20">
             <motion.div
             variants={viewVariants}
