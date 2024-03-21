@@ -80,7 +80,7 @@ export default function Home() {
   return (
     <>
     <div className="bg-black h-full w-full p-5 text-white flex flex-col items-center min-h-[120vh]">
-          <div className="absolute top-3 left-3 font-monument font-bold md:text-lg tracking-wider">DIALECT</div>
+          <a href="https://www.studiodialect.com/"><div className="absolute top-3 left-4 font-monument font-bold md:text-lg tracking-wider">DIALECT</div></a>
           <Suspense fallback={<div>Loading...</div>}>
           <motion.div
           initial={{scale: 0.3}}
