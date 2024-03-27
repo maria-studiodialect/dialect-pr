@@ -47,7 +47,6 @@ export default function Home() {
       const splineElement = document.getElementById('splineElement');
       const scrollElement = document.getElementById('scrollElement');
       let startY = 0; // Store the starting Y position of the touch
-      disableScroll();
       const handleTouchStart = (event) => {
         startY = event.touches[0].clientY; // Set the start Y to the initial touch position
         disableScroll(); // You might choose to disable scroll initially or not, based on testing
@@ -61,7 +60,9 @@ export default function Home() {
           enableScroll(); // If there's significant vertical movement, enable scrolling
         }
       };
-    
+      if (isMobileScreen) {
+        disableScroll();
+      }
       if (isMobileScreen && splineElement) {
         splineElement.addEventListener('touchstart', handleTouchStart);
         splineElement.addEventListener('touchmove', handleTouchMove);
@@ -102,22 +103,22 @@ export default function Home() {
             variants={viewVariants}
             initial='initial'
             animate='animate'
-            className="mb-5 leading-tight md:text-lg">Studio Dialect is thrilled to announce the appointment of Simon Hathaway as Non-Executive, effective immediately. Simon brings to Studio Dialect a wealth of experience from the global retail and innovation sector, having held leadership roles at renowned agencies including Outform, where he served as President & Group Managing Director for EMEA, Cheil Worldwide as President & Global Chief Retail Officer and Saatchi & Saatchi X as CEO EMEA.</motion.div>
+            className="mb-5 leading-tight md:text-lg">Studio Dialect is thrilled to announce the appointment of Simon Hathaway as Non-Executive Chairman, effective immediately. Simon brings to Studio Dialect a wealth of experience having held leadership role with brand owners and agencies. He most recently served as President & EMEA Group Managing Director, with Retail Innovation agency Outform, joining them from French technology giant Dassault Systemes, where he was Global CMO. Prior to that, his roles included President & Global Chief Retail Officer, Cheil Worldwide, and CEO EMEA of the Publicis Groupe-owned Saatchi & Saatchi X.</motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight md:text-lg">Simon&apos;s career is distinguished by his commitment to merging technology and creativity to redefine customer experience. His leadership whether at Outform, Cheil or Saatchi X saw them partner with some of the world&apos;s most iconic brands and retailers, driving forward innovations that have transformed the retail and brand activation landscape.</motion.div>
+            className="mb-5 leading-tight md:text-lg">Simon&apos;s career is distinguished by his commitment to delivering customer experience that blends technology and creativity. He has worked with some of the world&apos;s most iconic brands and retailers, driving forward innovations that have transformed brand activation and commerce.</motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight md:text-lg"><span className="font-extrabold">Jon, Dialect&apos;s CTO</span>, commented on the appointment, <span className="text-italic">&quot;Simon&apos;s visionary approach to retail and marketing is exactly what Studio Dialect needs as we continue to explore new horizons in future focused brand activation and 3D motion work. His track record of transformative leadership and innovation is unparalleled, and we are excited to have him on board.&quot;</span></motion.div>
+            className="mb-5 leading-tight md:text-lg"><span className="font-extrabold">Jon, Dialect&apos;s CTO</span>, commented on the appointment, <span className="text-italic">&quot;Simon&apos;s visionary approach to marketing and commerce is exactly what Studio Dialect needs as we continue to explore new horizons in future-focused brand activation and 3D motion work. His track record of transformative leadership and innovation is unparalleled, and we are excited to have him on board.&quot;</span></motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="mb-5 leading-tight md:text-lg"><span className="font-extrabold">From Andy, Creative Director</span> at Dialect: <span className="text-italic">&quot;We&apos;ve worked with Simon for several years as a client, having him join our team is a game-changer for us. His insight into the intersection of retail, technology, and creative strategy will undoubtedly propel Studio Dialect to new heights. I look forward to collaborating closely with Simon to deliver groundbreaking solutions for our clients.&quot;</span></motion.div>
+            className="mb-5 leading-tight md:text-lg"><span className="font-extrabold">From Andy, Creative Director</span> at Dialect: <span className="text-italic">&quot;We&apos;ve worked with Simon for several years as a client, having him join our team is a game-changer for us. His insight into the intersection of creative strategy, retail, and technology, will undoubtedly propel Studio Dialect to new heights. I look forward to collaborating closely with Simon to deliver groundbreaking solutions for our clients.&quot;</span></motion.div>
             <motion.div
             variants={viewVariants}
             initial='initial'
@@ -133,7 +134,7 @@ export default function Home() {
             variants={viewVariants}
             initial='initial'
             whileInView='whileInView'
-            className="leading-tight md:text-lg">Studio Dialect is a &quot;first focused&quot; interactive studio specialising in interactive brand activations, creative technology and motion work. Known for its innovative approach to digital storytelling and immersive experiences, Studio Dialect collaborates with brands to bring their visions to life in unique and engaging ways.</motion.div>
+            className="leading-tight md:text-lg">Studio Dialect is a &apos;first focused&apos; interactive studio specialising in interactive brand activations, creative technology and motion work. Known for its innovative approach to digital storytelling and immersive experiences, Studio Dialect collaborates with brands to bring their visions to life in unique and engaging ways.</motion.div>
             </div>
           </div>
     </div>
