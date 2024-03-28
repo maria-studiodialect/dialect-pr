@@ -11,7 +11,7 @@ export default function Document() {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://pr.studiodialect.com/"/>
-        <meta property="og:title" content="Studio Dialect PR"/>
+        <meta property="og:title" content="Studio Dialect"/>
         <meta property="og:description" content="Simon Hathaway Joins Studio Dialect"/>
         <meta property="og:image" content="/cards-size.jpg"/>
       </Head>
