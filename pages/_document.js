@@ -13,7 +13,7 @@ export default function Document() {
         <meta property="og:url" content="https://pr.studiodialect.com/"/>
         <meta property="og:title" content="Studio Dialect"/>
         <meta property="og:description" content="Simon Hathaway Joins Studio Dialect"/>
-        <meta property="og:image" content="/cards-size.jpg"/>
+        <meta property="og:image" content="/cards.jpg"/>
       </Head>
       <body>
         <Main />
