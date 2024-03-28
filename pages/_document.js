@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
 
-        <meta name="title" content="Studio Dialect PR"/>
+        <meta name="title" content="Studio Dialect"/>
         <meta name="description" content="Simon Hathaway Joins Studio Dialect"/>
 
         {/* Open Graph / Facebook */}
